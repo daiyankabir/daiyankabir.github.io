@@ -1,2093 +1,1203 @@
-<!doctype html>
-<html lang="zxx">
-
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- color of address bar in mobile browser -->
-  <meta name="theme-color" content="#2B2B35">
-  <!-- favicon  -->
-  <link rel="shortcut icon" href="img/thumbnail.ico" type="image/x-icon">
-  <!-- bootstrap css -->
-  <link rel="stylesheet" href="css/plugins/bootstrap.min.css">
-  <!-- font awesome css -->
-  <link rel="stylesheet" href="css/plugins/font-awesome.min.css">
-  <!-- swiper css -->
-  <link rel="stylesheet" href="css/plugins/swiper.min.css">
-  <!-- fancybox css -->
-  <link rel="stylesheet" href="css/plugins/fancybox.min.css">
-  <!-- main css -->
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daiyan Kabir | Software Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
 
-  <title>Daiyan Kabir</title>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text) 0%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(99, 102, 241, 0.3);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .orbit {
+            position: absolute;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        .orbit-1 {
+            width: 120%;
+            height: 120%;
+            top: -10%;
+            left: -10%;
+        }
+
+        .orbit-2 {
+            width: 140%;
+            height: 140%;
+            top: -20%;
+            left: -20%;
+            animation-direction: reverse;
+            animation-duration: 30s;
+        }
+
+        .orbit-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px var(--accent);
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            padding: 3rem 5%;
+            background: var(--secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-content {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 16px;
+            max-width: 500px;
+            margin: 0 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 2rem;
+            right: -3rem;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 0 4px var(--accent);
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: auto;
+            left: -3rem;
+        }
+
+        .timeline-date {
+            color: var(--accent-light);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .timeline-company {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .timeline-desc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-desc li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Skills Grid */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.25rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent-light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--secondary);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+        }
+
+        .project-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(16, 185, 129, 0.05));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+        }
+
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--success));
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .edu-date {
+            color: var(--accent-light);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-degree {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-school {
+            color: var(--text-muted);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        .contact-form {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--text);
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            background: var(--secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                padding-left: 80px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+
+            .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 20px;
+                right: auto;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<base target="_blank">
 </head>
-
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">DK.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-  <!-- app -->
-  <div class="art-app art-app-onepage">
-
-    <!-- mobile top bar -->
-    <div class="art-mobile-top-bar"></div>
-
-    <!-- app wrapper -->
-    <div class="art-app-wrapper">
-
-      <!-- app container end -->
-      <div class="art-app-container">
-
-        <!-- info bar -->
-        <div class="art-info-bar">
-
-          <!-- menu bar frame -->
-          <div class="art-info-bar-frame">
-
-            <!-- info bar header -->
-            <div class="art-info-bar-header">
-              <!-- info bar button -->
-              <div class="art-info-bar-btn">
-                <!-- icon -->
-                <i class="fas fa-ellipsis-v"></i>
-              </div>
-              <!-- info bar button end -->
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Daiyan Kabir</h1>
+                <div class="subtitle">Software Developer</div>
+                <p>Motivated and detail-oriented computer science professional with hands-on experience in software development, web applications, and trading platforms. Skilled in C#, .NET, Python, Django, and database management with a strong foundation in object-oriented programming and agile development.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Get In Touch
+                    </a>
+                    <a href="#projects" class="btn btn-secondary">
+                        <i class="fas fa-code"></i> View Projects
+                    </a>
+                </div>
             </div>
-            <!-- info bar header end -->
-
-            <!-- info bar header -->
-            <div class="art-header">
-              <!-- avatar -->
-              <div class="art-avatar">
-                <a data-fancybox="avatar" data-no-swup href="img/profile.jpg" class="art-avatar-curtain">
-                  <img src="img/profile.jpg" alt="avatar">
-                  <i class="fas fa-expand"></i>
-                </a>
-                <!-- available -->
-                <div class="art-lamp-light">
-                  <!-- add class 'art-not-available' if not available-->
-                  <div class="art-available-lamp"></div>
+            <div class="hero-image">
+                <div class="profile-container">
+                    <div class="orbit orbit-1">
+                        <div class="orbit-dot"></div>
+                    </div>
+                    <div class="orbit orbit-2">
+                        <div class="orbit-dot" style="background: var(--success); box-shadow: 0 0 20px var(--success);"></div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Daiyan Kabir" class="profile-img">
                 </div>
-              </div>
-              <!-- avatar end -->
-              <!-- name -->
-              <h5 class="art-name mb-10">Daiyan Kabir</h5>
-              <!-- post -->
-              <div class="art-sm-text">Software Engineer</div>
             </div>
-            <!-- info bar header end -->
-
-            <!-- scroll frame -->
-            <div id="scrollbar2" class="art-scroll-frame">
-
-              <!-- info bar about -->
-              <div class="art-table p-15-15">
-                <!-- about text -->
-                <ul>
-                  <!-- country -->
-                  <li>
-                    <h6>Residence:</h6><span>Germany</span>
-                  </li>
-                  <!-- city -->
-                  <li>
-                    <h6>City:</h6><span>Duisburg</span>
-                  </li>
-                  <!-- age -->
-                  <li>
-                    <h6>Birth:</h6><span>03.07.2000</span>
-                  </li>
-                </ul>
-              </div>
-              <!-- info bar about end -->
-
-              <!-- divider -->
-              <div class="art-ls-divider"></div>
-
-              <!-- language skills -->
-              <div class="art-lang-skills p-30-15">
-
-                <!-- skill -->
-                <div class="art-lang-skills-item">
-                  <div id="circleprog1" class="art-cirkle-progress"></div>
-                  <!-- title -->
-                  <h6>Bengali</h6>
-                </div>
-                <!-- skill end -->
-
-                <!-- skill -->
-                <div class="art-lang-skills-item">
-                  <div id="circleprog2" class="art-cirkle-progress"></div>
-                  <!-- title -->
-                  <h6>English</h6>
-                </div>
-                <!-- skill end -->
-
-                <!-- skill -->
-                <div class="art-lang-skills-item">
-                  <div id="circleprog3" class="art-cirkle-progress"></div>
-                  <!-- title -->
-                  <h6>German</h6>
-                </div>
-                <!-- skill end -->
-
-              </div>
-              <!-- language skills end -->
-
-              <!-- divider -->
-              <div class="art-ls-divider"></div>
-
-              <!-- hard skills -->
-              <div class="art-hard-skills p-30-15">
-
-                <!-- skill -->
-                <div class="art-hard-skills-item">
-                  <div class="art-skill-heading">
-                    <!-- title -->
-                    <h6>html</h6>
-                  </div>
-                  <!-- progressbar frame -->
-                  <div class="art-line-progress">
-                    <!-- progressbar -->
-                    <div id="lineprog1"></div>
-                  </div>
-                  <!-- progressbar frame end -->
-                </div>
-                <!-- skill end -->
-
-                <!-- skill -->
-                <div class="art-hard-skills-item">
-                  <div class="art-skill-heading">
-                    <!-- title -->
-                    <h6>CSS</h6>
-                  </div>
-                  <!-- progressbar frame -->
-                  <div class="art-line-progress">
-                    <!-- progressbar -->
-                    <div id="lineprog2"></div>
-                  </div>
-                  <!-- progressbar frame end -->
-                </div>
-                <!-- skill end -->
-
-                <!-- skill -->
-                <div class="art-hard-skills-item">
-                  <div class="art-skill-heading">
-                    <!-- title -->
-                    <h6>Js</h6>
-                  </div>
-                  <!-- progressbar frame -->
-                  <div class="art-line-progress">
-                    <!-- progressbar -->
-                    <div id="lineprog3"></div>
-                  </div>
-                  <!-- progressbar frame end -->
-                </div>
-                <!-- skill end -->
-
-                <!-- skill -->
-                <div class="art-hard-skills-item">
-                  <div class="art-skill-heading">
-                    <!-- title -->
-                    <h6>C#</h6>
-                  </div>
-                  <!-- progressbar frame -->
-                  <div class="art-line-progress">
-                    <!-- progressbar -->
-                    <div id="lineprog4"></div>
-                  </div>
-                  <!-- progressbar frame end -->
-                </div>
-                <!-- skill end -->
-
-                <!-- skill -->
-                <div class="art-hard-skills-item">
-                  <div class="art-skill-heading">
-                    <!-- title -->
-                    <h6>MS Sql Server</h6>
-                  </div>
-                  <!-- progressbar frame -->
-                  <div class="art-line-progress">
-                    <!-- progressbar -->
-                    <div id="lineprog5"></div>
-                  </div>
-                  <!-- progressbar frame end -->
-                </div>
-                <!-- skill end -->
-
-              </div>
-              <!-- language skills end -->
-
-              <!-- divider -->
-              <div class="art-ls-divider"></div>
-
-              <!-- knowledge list -->
-              <ul class="art-knowledge-list p-15-0">
-                <!-- list item -->
-                <li>Bootstrap, TailwindCSS</li>
-                <!-- list item -->
-                <li>.Net Development, Vue.JS</li>
-                <!-- list item -->
-                <li>Backend, Frontend</li>
-                <!-- list item -->
-                <li>GIT, Jira</li>
-              </ul>
-              <!-- knowledge list end -->
-
-              <!-- divider -->
-              <div class="art-ls-divider"></div>
-
-              <!-- links frame -->
-              <div class="art-links-frame p-15-15">
-
-                <!-- download cv button -->
-                <a href="files/CV_ Daiyan-Kabir.pdf" class="art-link" download data-no-swup>Download cv <i
-                    class="fas fa-download"></i></a>
-
-              </div>
-              <!-- links frame end -->
-
-            </div>
-            <!-- scroll frame end -->
-
-            <!-- sidebar social -->
-            <div class="art-ls-social">
-              <!-- social link -->
-              <a href="https://www.linkedin.com/in/daiyan-kabir1/"><i class="fab fa-linkedin-in"></i></a>
-              <!-- social link -->
-              <a href="https://www.xing.com/profile/Daiyan_kabir/web_profiles?expandNeffi=true"><i
-                  class="fab fa-xing"></i></a>
-              <!-- social link -->
-              <a href="https://github.com/daiyankabir"><i class="fab fa-github"></i></a>
-              <!-- social link -->
-              <a href="https://www.facebook.com/daiyan.kabir1"><i class="fab fa-facebook"></i></a>
-            </div>
-            <!-- sidebar social end -->
-
-          </div>
-          <!-- menu bar frame end -->
-
         </div>
-        <!-- info bar end -->
-
-        <!-- content -->
-        <div class="art-content">
-
-          <!-- curtain -->
-          <div class="art-curtain"></div>
-
-          <!-- top background -->
-          <div class="art-top-bg" style="background-image: url(img/bg.jpg)">
-            <!-- overlay -->
-            <div class="art-top-bg-overlay"></div>
-            <!-- overlay end -->
-          </div>
-          <!-- top background end -->
-
-          <!-- swup container -->
-          <div class="transition-fade" id="swup">
-
-            <!-- scroll frame -->
-            <div id="scrollbar" class="art-scroll-frame">
-
-              <!-- container -->
-              <div class="container-fluid">
-
-                <!-- row -->
-                <div class="row p-60-0 p-lg-30-0 p-md-15-0">
-                  <!-- col -->
-                  <div class="col-lg-12">
-
-                    <!-- banner -->
-                    <div class="art-a art-banner" style="background-image: url(img/bg.jpg)">
-                      <!-- banner back -->
-                      <div class="art-banner-back"></div>
-                      <!-- banner dec -->
-                      <div class="art-banner-dec"></div>
-                      <!-- banner overlay -->
-                      <div class="art-banner-overlay">
-                        <!-- main title -->
-                        <div class="art-banner-title">
-                          <!-- title -->
-                          <h1 class="mb-15">Discover my Amazing <br>Art Space!</h1>
-                          <!-- suptitle -->
-                          <div class="art-lg-text art-code mb-25">&lt;<i>code</i>&gt; I build <span class="txt-rotate"
-                              data-period="2000"
-                              data-rotate='[ "web interfaces.", "web applications.", "backend.", "frontend." ]'></span>&lt;/<i>code</i>&gt;
-                          </div>
-                          <div class="art-buttons-frame">
-                            <!-- button -->
-                            <a href="#." class="art-btn art-btn-md"><span>Explore now</span></a>
-                            <!-- button -->
-                            <a href="#." class="art-link art-white-link art-w-chevron">Hire me</a>
-                          </div>
-                        </div>
-                        <!-- main title end -->
-                        <!-- photo -->
-                        <img src="img/face-2.png" class="art-banner-photo" alt="Daiyan Kabir">
-                      </div>
-                      <!-- banner overlay end -->
-                    </div>
-                    <!-- banner end -->
-
-                  </div>
-                  <!-- col end -->
-                </div>
-                <!-- row end -->
-
-              </div>
-              <!-- container end -->
-
-              <!-- container -->
-              <div class="container-fluid">
-
-                <!-- row -->
-                <div class="row p-30-0">
-
-                  <!-- col -->
-                  <div class="col-md-3 col-6">
-
-                    <!-- couner frame -->
-                    <div class="art-counter-frame">
-                      <!-- counter -->
-                      <div class="art-counter-box">
-                        <!-- counter number -->
-                        <span class="art-counter">3</span><span class="art-counter-plus">+</span>
-                      </div>
-                      <!-- counter end -->
-                      <!-- title -->
-                      <h6>Years Experience</h6>
-                    </div>
-                    <!-- couner frame end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-md-3 col-6">
-
-                    <!-- couner frame -->
-                    <div class="art-counter-frame">
-                      <!-- counter -->
-                      <div class="art-counter-box">
-                        <!-- counter number -->
-                        <span class="art-counter">55</span>
-                      </div>
-                      <!-- counter end -->
-                      <!-- title -->
-                      <h6>Completed Projects</h6>
-                    </div>
-                    <!-- couner frame end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-md-3 col-6">
-
-                    <!-- couner frame -->
-                    <div class="art-counter-frame">
-                      <!-- counter -->
-                      <div class="art-counter-box">
-                        <!-- counter number -->
-                        <span class="art-counter">114</span>
-                      </div>
-                      <!-- counter end -->
-                      <!-- title -->
-                      <h6>Happy Customers</h6>
-                    </div>
-                    <!-- couner frame end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-md-3 col-6">
-
-                    <!-- couner frame -->
-                    <div class="art-counter-frame">
-                      <!-- counter -->
-                      <div class="art-counter-box">
-                        <!-- counter number -->
-                        <span class="art-counter">20</span><span class="art-counter-plus">+</span>
-                      </div>
-                      <!-- counter end -->
-                      <!-- title -->
-                      <h6>Honors and Awards</h6>
-                    </div>
-                    <!-- couner frame end -->
-
-                  </div>
-                  <!-- col end -->
-
-                </div>
-                <!-- row end -->
-
-              </div>
-              <!-- container end -->
-
-              <!-- container -->
-              <div class="container-fluid">
-
-                <!-- row -->
-                <div class="row">
-
-                  <!-- col -->
-                  <div class="col-lg-12">
-
-                    <!-- section title -->
-                    <div class="art-section-title">
-                      <!-- title frame -->
-                      <div class="art-title-frame">
-                        <!-- title -->
-                        <h4>My Services</h4>
-                      </div>
-                      <!-- title frame end -->
-                    </div>
-                    <!-- section title end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-4 col-md-6">
-
-                    <!-- service -->
-                    <div class="art-a art-service-icon-box">
-                      <!-- service content -->
-                      <div class="art-service-ib-content">
-                        <!-- title -->
-                        <h5 class="mb-15">Web Development</h5>
-                        <!-- text -->
-                        <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse
-                          commodi deserunt vitae, vero quasi! Veniam quaerat tenetur pariatur doloribus.</div>
-                        <!-- button -->
-                        <div class="art-buttons-frame"><a href="#." class="art-link art-color-link art-w-chevron">Order
-                            now</a></div>
-                      </div>
-                      <!-- service content end -->
-                    </div>
-                    <!-- service end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-4 col-md-6">
-
-                    <!-- service -->
-                    <div class="art-a art-service-icon-box">
-                      <!-- service content -->
-                      <div class="art-service-ib-content">
-                        <!-- title -->
-                        <h5 class="mb-15">UI/UX Design</h5>
-                        <!-- text -->
-                        <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse
-                          commodi deserunt vitae, vero quasi! Veniam quaerat tenetur pariatur doloribus.</div>
-                        <!-- button -->
-                        <div class="art-buttons-frame"><a href="#." class="art-link art-color-link art-w-chevron">Order
-                            now</a></div>
-                      </div>
-                      <!-- service content end -->
-                    </div>
-                    <!-- service end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-4 col-md-6">
-
-                    <!-- service -->
-                    <div class="art-a art-service-icon-box">
-                      <!-- service content -->
-                      <div class="art-service-ib-content">
-                        <!-- title -->
-                        <h5 class="mb-15">Sound Design</h5>
-                        <!-- text -->
-                        <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse
-                          commodi deserunt vitae, vero quasi! Veniam quaerat tenetur pariatur doloribus.</div>
-                        <!-- button -->
-                        <div class="art-buttons-frame"><a href="#." class="art-link art-color-link art-w-chevron">Order
-                            now</a></div>
-                      </div>
-                      <!-- service content end -->
-                    </div>
-                    <!-- service end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-4 col-md-6">
-
-                    <!-- service -->
-                    <div class="art-a art-service-icon-box">
-                      <!-- service content -->
-                      <div class="art-service-ib-content">
-                        <!-- title -->
-                        <h5 class="mb-15">Game Design</h5>
-                        <!-- text -->
-                        <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse
-                          commodi deserunt vitae, vero quasi! Veniam quaerat tenetur pariatur doloribus.</div>
-                        <!-- button -->
-                        <div class="art-buttons-frame"><a href="#." class="art-link art-color-link art-w-chevron">Order
-                            now</a></div>
-                      </div>
-                      <!-- service content end -->
-                    </div>
-                    <!-- service end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-4 col-md-6">
-
-                    <!-- service -->
-                    <div class="art-a art-service-icon-box">
-                      <!-- service content -->
-                      <div class="art-service-ib-content">
-                        <!-- title -->
-                        <h5 class="mb-15">Advertising</h5>
-                        <!-- text -->
-                        <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse
-                          commodi deserunt vitae, vero quasi! Veniam quaerat tenetur pariatur doloribus.</div>
-                        <!-- button -->
-                        <div class="art-buttons-frame"><a href="#." class="art-link art-color-link art-w-chevron">Order
-                            now</a></div>
-                      </div>
-                      <!-- service content end -->
-                    </div>
-                    <!-- service end -->
-
-                  </div>
-                  <!-- col end -->
-
-                </div>
-                <!-- row end -->
-
-              </div>
-              <!-- container end -->
-
-              <!-- container -->
-              <div class="container-fluid">
-
-                <!-- row -->
-                <div class="row p-0-0">
-
-                  <!-- col -->
-                  <div class="col-lg-12">
-
-                    <!-- section title -->
-                    <div class="art-section-title">
-                      <!-- title frame -->
-                      <div class="art-title-frame">
-                        <!-- title -->
-                        <h4>Price Plans</h4>
-                      </div>
-                      <!-- title frame end -->
-                    </div>
-                    <!-- section title end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-4">
-
-                    <!-- price -->
-                    <div class="art-a art-price">
-                      <!-- price body -->
-                      <div class="art-price-body">
-                        <h5 class="mb-30">Starter Price</h5>
-                        <!-- price cost -->
-                        <div class="art-price-cost">
-                          <div class="art-number">FREE<sup>*</sup></div>
-                        </div>
-                        <!-- price cost end -->
-                        <!-- price list -->
-                        <ul class="art-price-list">
-                          <!-- list item -->
-                          <li>Ui Design</li>
-                          <!-- list item -->
-                          <li>Web Development</li>
-                          <!-- list item -->
-                          <li class="art-empty-item">Logo design</li>
-                          <!-- list item -->
-                          <li class="art-empty-item">SEO optimization</li>
-                          <!-- list item -->
-                          <li class="art-empty-item">Wordpress integration</li>
-                        </ul>
-                        <!-- price list end -->
-                        <!-- button -->
-                        <a href="#." class="art-link art-color-link art-w-chevron">Order now</a>
-                        <div class="art-asterisk"><sup>*</sup>Free only when ordering paid services</div>
-                      </div>
-                      <!-- price body end -->
-                    </div>
-                    <!-- price end -->
-
-                  </div>
-                  <!-- grid -->
-
-                  <!-- col -->
-                  <div class="col-lg-4">
-
-                    <!-- price -->
-                    <div class="art-a art-price art-popular-price">
-                      <!-- price body -->
-                      <div class="art-price-body">
-                        <h5 class="mb-30">Hourly payment</h5>
-                        <!-- price cost -->
-                        <div class="art-price-cost">
-                          <div class="art-number"><span>$</span>29<span>h</span></div>
-                        </div>
-                        <!-- price cost end -->
-                        <!-- price list -->
-                        <ul class="art-price-list">
-                          <!-- list item -->
-                          <li>Ui Design</li>
-                          <!-- list item -->
-                          <li>Web Development</li>
-                          <!-- list item -->
-                          <li>Logo design</li>
-                          <!-- list item -->
-                          <li class="art-empty-item">SEO optimization</li>
-                          <!-- list item -->
-                          <li class="art-empty-item">Wordpress integration</li>
-                        </ul>
-                        <!-- price list end -->
-                        <!-- button -->
-                        <a href="#." class="art-link art-color-link art-w-chevron">Order now</a>
-                      </div>
-                      <!-- price body end -->
-                    </div>
-                    <!-- price end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-4">
-
-                    <!-- price -->
-                    <div class="art-a art-price">
-                      <!-- price body -->
-                      <div class="art-price-body">
-                        <h5 class="mb-30"> Full time</h5>
-                        <!-- price cost -->
-                        <div class="art-price-cost">
-                          <div class="art-number"><span>$</span>2999<span>m</span></div>
-                        </div>
-                        <!-- price cost end -->
-                        <!-- price list -->
-                        <ul class="art-price-list">
-                          <!-- list item -->
-                          <li>Ui Design</li>
-                          <!-- list item -->
-                          <li>Web Development</li>
-                          <!-- list item -->
-                          <li>Logo design</li>
-                          <!-- list item -->
-                          <li>SEO optimization</li>
-                          <!-- list item -->
-                          <li>Wordpress integration</li>
-                        </ul>
-                        <!-- price list end -->
-                        <!-- button -->
-                        <a href="#." class="art-link art-color-link art-w-chevron">Order now</a>
-                      </div>
-                      <!-- price body end -->
-                    </div>
-                    <!-- price end -->
-
-                  </div>
-                  <!-- col end -->
-
-                </div>
-                <!-- row end -->
-
-              </div>
-              <!-- container end -->
-
-              <!-- container -->
-              <div class="container-fluid">
-
-                <!-- row -->
-                <div class="row">
-
-                  <!-- col -->
-                  <div class="col-lg-12">
-
-                    <!-- section title -->
-                    <div class="art-section-title">
-                      <!-- title frame -->
-                      <div class="art-title-frame">
-                        <!-- title -->
-                        <h4>Recommendations</h4>
-                      </div>
-                      <!-- title frame end -->
-                    </div>
-                    <!-- section title end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-12">
-
-                    <!-- slider container -->
-                    <div class="swiper-container art-testimonial-slider" style="overflow: visible">
-                      <!-- slider wrapper -->
-                      <div class="swiper-wrapper">
-                        <!-- slide -->
-                        <div class="swiper-slide">
-
-                          <!-- testimonial -->
-                          <div class="art-a art-testimonial">
-                            <!-- testimonial body -->
-                            <div class="testimonial-body">
-                              <!-- photo -->
-                              <img class="art-testimonial-face" src="img/profile.jpg" alt="face">
-                              <!-- name -->
-                              <h5>Paul Trueman</h5>
-                              <div class="art-el-suptitle mb-15">Template author</div>
-                              <!-- text -->
-                              <div class="mb-15">Working with Artur has been a pleasure. Better yet - I alerted them of
-                                a minor issue before going to sleep. The issue was fixed the next morning. I couldn't
-                                ask for better support. Thank you Artur!
-                                This is easily a 5 star freelancer.</div>
-                            </div>
-                            <!-- testimonial body end -->
-                            <!-- testimonial footer -->
-                            <div class="art-testimonial-footer">
-                              <div class="art-left-side">
-                                <!-- star rate -->
-                                <ul class="art-star-rate">
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                </ul>
-                                <!-- star rate end -->
-                              </div>
-                              <div class="art-right-side">
-
-                              </div>
-                            </div>
-                            <!-- testimonial footer end -->
-                          </div>
-                          <!-- testimonial end -->
-
-                        </div>
-                        <!-- slide end -->
-
-                        <!-- slide -->
-                        <div class="swiper-slide">
-
-                          <!-- testimonial -->
-                          <div class="art-a art-testimonial">
-                            <!-- testimonial body -->
-                            <div class="testimonial-body">
-                              <!-- photo -->
-                              <img class="art-testimonial-face" src="img/testimonials/face-2.jpg" alt="face">
-                              <!-- name -->
-                              <h5>Paul Trueman</h5>
-                              <div class="art-el-suptitle mb-15">Template author</div>
-                              <!-- text -->
-                              <div class="mb-15">Working with Artur has been a pleasure. Better yet - I alerted them of
-                                a minor issue before going to sleep. The issue was fixed the next morning. I couldn't
-                                ask for better support. Thank you Artur!
-                                This is easily a 5 star freelancer.</div>
-                            </div>
-                            <!-- testimonial body end -->
-                            <!-- testimonial footer -->
-                            <div class="art-testimonial-footer">
-                              <div class="art-left-side">
-                                <!-- star rate -->
-                                <ul class="art-star-rate">
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li class="art-empty-item"><i class="fas fa-star"></i></li>
-                                </ul>
-                                <!-- star rate end -->
-                              </div>
-                              <div class="art-right-side">
-
-                              </div>
-                            </div>
-                            <!-- testimonial footer end -->
-                          </div>
-                          <!-- testimonial end -->
-
-                        </div>
-                        <!-- slide end -->
-
-                        <!-- slide -->
-                        <div class="swiper-slide">
-
-                          <!-- testimonial -->
-                          <div class="art-a art-testimonial">
-                            <!-- testimonial body -->
-                            <div class="testimonial-body">
-                              <!-- photo -->
-                              <img class="art-testimonial-face" src="img/testimonials/face-3.jpg" alt="face">
-                              <!-- name -->
-                              <h5>Paul Trueman</h5>
-                              <div class="art-el-suptitle mb-15">Template author</div>
-                              <!-- text -->
-                              <div class="mb-15">Working with Artur has been a pleasure. Better yet - I alerted them of
-                                a minor issue before going to sleep. The issue was fixed the next morning. I couldn't
-                                ask for better support. Thank you Artur!
-                                This is easily a 5 star freelancer.</div>
-                            </div>
-                            <!-- testimonial body end -->
-                            <!-- testimonial footer -->
-                            <div class="art-testimonial-footer">
-                              <div class="art-left-side">
-                                <!-- star rate -->
-                                <ul class="art-star-rate">
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                </ul>
-                                <!-- star rate end -->
-                              </div>
-                              <div class="art-right-side">
-
-                              </div>
-                            </div>
-                            <!-- testimonial footer end -->
-                          </div>
-                          <!-- testimonial end -->
-
-                        </div>
-                        <!-- slide end -->
-
-                        <!-- slide -->
-                        <div class="swiper-slide">
-
-                          <!-- testimonial -->
-                          <div class="art-a art-testimonial">
-                            <!-- testimonial body -->
-                            <div class="testimonial-body">
-                              <!-- photo -->
-                              <img class="art-testimonial-face" src="img/testimonials/face-4.jpg" alt="face">
-                              <!-- name -->
-                              <h5>Paul Trueman</h5>
-                              <div class="art-el-suptitle mb-15">Template author</div>
-                              <!-- text -->
-                              <div class="mb-15">Working with Artur has been a pleasure. Better yet - I alerted them of
-                                a minor issue before going to sleep. The issue was fixed the next morning. I couldn't
-                                ask for better support. Thank you Artur!
-                                This is easily a 5 star freelancer.</div>
-                            </div>
-                            <!-- testimonial body end -->
-                            <!-- testimonial footer -->
-                            <div class="art-testimonial-footer">
-                              <div class="art-left-side">
-                                <!-- star rate -->
-                                <ul class="art-star-rate">
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                </ul>
-                                <!-- star rate end -->
-                              </div>
-                              <div class="art-right-side">
-
-                              </div>
-                            </div>
-                            <!-- testimonial footer end -->
-                          </div>
-                          <!-- testimonial end -->
-
-                        </div>
-                        <!-- slide end -->
-
-                      </div>
-                      <!-- slider wrapper end -->
-                    </div>
-                    <!-- slider container end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-12">
-
-                    <!-- slider navigation -->
-                    <div class="art-slider-navigation">
-
-                      <!-- left side -->
-                      <div class="art-sn-left">
-
-                        <!-- slider pagination -->
-                        <div class="swiper-pagination"></div>
-
-                      </div>
-                      <!-- left side end -->
-
-                      <!-- right side -->
-                      <div class="art-sn-right">
-
-                        <!-- slider navigation -->
-                        <div class="art-slider-nav-frame">
-                          <!-- prev -->
-                          <div class="art-slider-nav art-testi-swiper-prev"><i class="fas fa-chevron-left"></i></div>
-                          <!-- next -->
-                          <div class="art-slider-nav art-testi-swiper-next"><i class="fas fa-chevron-right"></i></div>
-                        </div>
-                        <!-- slider navigation -->
-
-                      </div>
-                      <!-- right side end -->
-
-                    </div>
-                    <!-- slider navigation end -->
-
-                  </div>
-                  <!-- col end -->
-
-                </div>
-                <!-- row end -->
-
-              </div>
-              <!-- container end -->
-
-              <!-- container -->
-              <div class="container-fluid">
-
-                <!-- row -->
-                <div class="row p-30-0">
-
-                  <!-- col -->
-                  <div class="col-lg-12">
-
-                    <!-- section title -->
-                    <div class="art-section-title">
-                      <!-- title frame -->
-                      <div class="art-title-frame">
-                        <!-- title -->
-                        <h4>Works</h4>
-                      </div>
-                      <!-- title frame end -->
-                      <!-- right frame -->
-                      <div class="art-right-frame">
-                        <!-- filter -->
-                        <div class="art-filter">
-                          <!-- filter link -->
-                          <a href="#" data-filter="*" class="art-link art-current">All Categories</a>
-                          <!-- filter link -->
-                          <a href="#" data-filter=".webTemplates" class="art-link">Web Templates</a>
-                          <!-- filter link -->
-                          <a href="#" data-filter=".logos" class="art-link">Logos</a>
-                          <!-- filter link -->
-                          <a href="#" data-filter=".drawings" class="art-link">Drawings</a>
-                          <!-- filter link -->
-                          <a href="#" data-filter=".ui" class="art-link">UI Elements</a>
-                        </div>
-                        <!-- filter end -->
-                      </div>
-                      <!-- right frame end -->
-                    </div>
-                    <!-- section title end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <div class="art-grid art-grid-3-col art-gallery">
-
-                    <!-- grid item -->
-                    <div class="art-grid-item webTemplates">
-                      <!-- grid item frame -->
-                      <a data-fancybox="gallery" data-no-swup href="img/works/original-size/1.jpg"
-                        class="art-a art-portfolio-item-frame art-horizontal">
-                        <!-- img -->
-                        <img src="img/works/thumbnail/1.jpg" alt="item">
-                        <!-- zoom icon -->
-                        <span class="art-item-hover"><i class="fas fa-expand"></i></span>
-                      </a>
-                      <!-- grid item frame end -->
-                      <!-- description -->
-                      <div class="art-item-description">
-                        <!-- title -->
-                        <h5 class="mb-15">Project title</h5>
-                        <!-- button -->
-                        <a href="#." class="art-link art-color-link art-w-chevron">Read more</a>
-                      </div>
-                      <!-- description end -->
-
-                    </div>
-                    <!-- grid item end -->
-
-                    <!-- grid item -->
-                    <div class="art-grid-item logos">
-                      <!-- grid item frame -->
-                      <a data-fancybox="gallery" data-no-swup href="img/works/original-size/2.jpg"
-                        class="art-a art-portfolio-item-frame art-vertical">
-                        <!-- img -->
-                        <img src="img/works/thumbnail/2.jpg" alt="item">
-                        <!-- zoom icon -->
-                        <span class="art-item-hover"><i class="fas fa-expand"></i></span>
-                      </a>
-                      <!-- grid item frame end -->
-                      <!-- description -->
-                      <div class="art-item-description">
-                        <!-- title -->
-                        <h5 class="mb-15">Project title</h5>
-                        <div class="mb-15">Sit amet, consectetur adipisicing elit. Quas, architecto.</div>
-                        <!-- button -->
-                        <a href="#." class="art-link art-color-link art-w-chevron">Read more</a>
-                      </div>
-                      <!-- description end -->
-
-                    </div>
-                    <!-- grid item end -->
-
-                    <!-- grid item -->
-                    <div class="art-grid-item drawings">
-                      <!-- grid item frame -->
-                      <a data-fancybox="gallery" data-no-swup href="img/works/original-size/3.jpg"
-                        class="art-a art-portfolio-item-frame art-square">
-                        <!-- img -->
-                        <img src="img/works/thumbnail/3.jpg" alt="item">
-                        <!-- zoom icon -->
-                        <span class="art-item-hover"><i class="fas fa-expand"></i></span>
-                      </a>
-                      <!-- grid item frame end -->
-                      <!-- description -->
-                      <div class="art-item-description">
-                        <!-- title -->
-                        <h5 class="mb-15">Project title</h5>
-                        <div class="mb-15">Sit amet, consectetur adipisicing elit. Quas, architecto.</div>
-                        <!-- button -->
-                        <a href="#." class="art-link art-color-link art-w-chevron">Read more</a>
-                      </div>
-                      <!-- description end -->
-
-                    </div>
-                    <!-- grid item end -->
-
-                    <!-- grid item -->
-                    <div class="art-grid-item ui">
-                      <!-- grid item frame -->
-                      <a data-fancybox="gallery" data-no-swup href="img/works/original-size/4.jpg"
-                        class="art-a art-portfolio-item-frame art-vertical">
-                        <!-- img -->
-                        <img src="img/works/thumbnail/4.jpg" alt="item">
-                        <!-- zoom icon -->
-                        <span class="art-item-hover"><i class="fas fa-expand"></i></span>
-                      </a>
-                      <!-- grid item frame end -->
-                      <!-- description -->
-                      <div class="art-item-description">
-                        <!-- title -->
-                        <h5 class="mb-15">Project title</h5>
-                        <div class="mb-15">Sit amet, consectetur adipisicing elit. Quas, architecto.</div>
-                        <!-- button -->
-                        <a href="#." class="art-link art-color-link art-w-chevron">Read more</a>
-                      </div>
-                      <!-- description end -->
-
-                    </div>
-                    <!-- grid item end -->
-
-                    <!-- grid item -->
-                    <div class="art-grid-item webTemplates">
-                      <!-- grid item frame -->
-                      <a data-fancybox="gallery" data-no-swup href="img/works/original-size/5.jpg"
-                        class="art-a art-portfolio-item-frame art-square">
-                        <!-- img -->
-                        <img src="img/works/thumbnail/5.jpg" alt="item">
-                        <!-- zoom icon -->
-                        <span class="art-item-hover"><i class="fas fa-expand"></i></span>
-                      </a>
-                      <!-- grid item frame end -->
-                      <!-- description -->
-                      <div class="art-item-description">
-                        <!-- title -->
-                        <h5 class="mb-15">Project title</h5>
-                        <div class="mb-15">Sit amet, consectetur adipisicing elit. Quas, architecto.</div>
-                        <!-- button -->
-                        <a href="#." class="art-link art-color-link art-w-chevron">Read more</a>
-                      </div>
-                      <!-- description end -->
-
-                    </div>
-                    <!-- grid item end -->
-
-                    <!-- grid item -->
-                    <div class="art-grid-item logos">
-                      <!-- grid item frame -->
-                      <a data-fancybox="gallery" data-no-swup href="img/works/original-size/6.jpg"
-                        class="art-a art-portfolio-item-frame art-vertical">
-                        <!-- img -->
-                        <img src="img/works/thumbnail/6.jpg" alt="item">
-                        <!-- zoom icon -->
-                        <span class="art-item-hover"><i class="fas fa-expand"></i></span>
-                      </a>
-                      <!-- grid item frame end -->
-                      <!-- description -->
-                      <div class="art-item-description">
-                        <!-- title -->
-                        <h5 class="mb-15">Project title</h5>
-                        <div class="mb-15">Sit amet, consectetur adipisicing elit. Quas, architecto.</div>
-                        <!-- button -->
-                        <a href="#." class="art-link art-color-link art-w-chevron">Read more</a>
-                      </div>
-                      <!-- description end -->
-
-                    </div>
-                    <!-- grid item end -->
-
-                    <!-- grid item -->
-                    <div class="art-grid-item drawings">
-                      <!-- grid item frame -->
-                      <a data-fancybox="gallery" data-no-swup href="img/works/original-size/7.jpg"
-                        class="art-a art-portfolio-item-frame art-square">
-                        <!-- img -->
-                        <img src="img/works/thumbnail/7.jpg" alt="item">
-                        <!-- zoom icon -->
-                        <span class="art-item-hover"><i class="fas fa-expand"></i></span>
-                      </a>
-                      <!-- grid item frame end -->
-                      <!-- description -->
-                      <div class="art-item-description">
-                        <!-- title -->
-                        <h5 class="mb-15">Project title</h5>
-                        <div class="mb-15">Sit amet, consectetur adipisicing elit. Quas, architecto.</div>
-                        <!-- button -->
-                        <a href="#." class="art-link art-color-link art-w-chevron">Read more</a>
-                      </div>
-                      <!-- description end -->
-
-                    </div>
-                    <!-- grid item end -->
-
-                    <!-- grid item -->
-                    <div class="art-grid-item ui">
-                      <!-- grid item frame -->
-                      <a data-fancybox="gallery" data-no-swup href="img/works/original-size/8.jpg"
-                        class="art-a art-portfolio-item-frame art-horizontal">
-                        <!-- img -->
-                        <img src="img/works/thumbnail/8.jpg" alt="item">
-                        <!-- zoom icon -->
-                        <span class="art-item-hover"><i class="fas fa-expand"></i></span>
-                      </a>
-                      <!-- grid item frame end -->
-                      <!-- description -->
-                      <div class="art-item-description">
-                        <!-- title -->
-                        <h5 class="mb-15">Project title</h5>
-                        <!-- button -->
-                        <a href="#." class="art-link art-color-link art-w-chevron">Read more</a>
-                      </div>
-                      <!-- description end -->
-
-                    </div>
-                    <!-- grid item end -->
-
-                  </div>
-
-                </div>
-                <!-- row end -->
-
-              </div>
-              <!-- container end -->
-
-              <!-- container -->
-              <div class="container-fluid">
-
-                <!-- row -->
-                <div class="row">
-
-                  <!-- col -->
-                  <div class="col-lg-6">
-
-                    <!-- section title -->
-                    <div class="art-section-title">
-                      <!-- title frame -->
-                      <div class="art-title-frame">
-                        <!-- title -->
-                        <h4>Education</h4>
-                      </div>
-                      <!-- title frame end -->
-                    </div>
-                    <!-- section title end -->
-
-                    <!-- timeline -->
-                    <div class="art-timeline art-gallery" id="history">
-                      <div class="art-timeline-item">
-                        <div class="art-timeline-mark-light"></div>
-                        <div class="art-timeline-mark"></div>
-
-                        <div class="art-a art-timeline-content">
-                          <div class="art-card-header">
-                            <div class="art-left-side">
-                              <h5>MSc. in Software Engineering</h5>
-                              <div class="art-el-suptitle mb-15">University of Hildesheim</div>
-
-                            </div>
-                            <div class="art-right-side">
-                              <span class="art-date">Apr 2025 - Present</span>
-                            </div>
-                          </div>
-
-                          <p>Thesis: 5G Network Implementation in Least Developing Countries: Possibility, Barriers
-                            and Future Opportunities.<br>
-                            Description: This paper explores the feasibility of 5G deployment in developing
-                            countries like Bangladesh, addressing challenges, security concerns, and innovation
-                            opportunities in networking, technology, and applications. </p>
-                          <!-- <a data-fancybox="diplome" data-no-swup href="files/msc.png"
-                            class="art-link art-color-link art-w-chevron">Certificate</a> -->
-                        </div>
-                      </div>
-
-                      <div class="art-timeline-item">
-                        <div class="art-timeline-mark-light"></div>
-                        <div class="art-timeline-mark"></div>
-
-                        <div class="art-a art-timeline-content">
-                          <div class="art-card-header">
-                            <div class="art-left-side">
-                              <h5>MSc. in Computer Science</h5>
-                              <div class="art-el-suptitle mb-15">American International University Bangladesh</div>
-
-                            </div>
-                            <div class="art-right-side">
-                              <span class="art-date">Jan 2018 - May 2021</span>
-                            </div>
-                          </div>
-
-                          <p>Thesis: 5G Network Implementation in Least Developing Countries: Possibility, Barriers
-                            and Future Opportunities.<br>
-                            Description: This paper explores the feasibility of 5G deployment in developing
-                            countries like Bangladesh, addressing challenges, security concerns, and innovation
-                            opportunities in networking, technology, and applications. </p>
-                          <a data-fancybox="diplome" data-no-swup href="files/msc.png"
-                            class="art-link art-color-link art-w-chevron">Certificate</a>
-                        </div>
-                      </div>
-
-                      <!-- <div class="art-timeline-item">
-                        <div class="art-timeline-mark-light"></div>
-                        <div class="art-timeline-mark"></div>
-
-                        <div class="art-a art-timeline-content">
-                          <div class="art-card-header">
-                            <div class="art-left-side">
-                              <h5>BSc. in Comput</h5>
-                              <div class="art-el-suptitle mb-15">Template author</div>
-                            </div>
-                            <div class="art-right-side">
-                              <span class="art-date">jan 2018 - may 2020</span>
-                            </div>
-                          </div>
-                          <div>Consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat
-                            iure tempora laudantium ipsa ad debitis unde?</div>
-                        </div>
-                      </div> -->
-
-                      <div class="art-timeline-item">
-                        <div class="art-timeline-mark-light"></div>
-                        <div class="art-timeline-mark"></div>
-
-                        <div class="art-a art-timeline-content">
-                          <div class="art-card-header">
-                            <div class="art-left-side">
-                              <h5>BSc. in Computer Science and Engineering</h5>
-                              <div class="art-el-suptitle mb-15">American International University Bangladesh</div>
-                            </div>
-                            <div class="art-right-side">
-                              <span class="art-date">Sep 2021 - Mar 2023</span>
-                            </div>
-                          </div>
-                          <p>Thesis: Custom Residual Network and Transfer Learning to Detect Tea Leaf Diseases.<br>
-                            Description: This study presents a custom residual network and transfer learning
-                            approach to detect tea leaf diseases, aiming to improve early diagnosis and
-                            agricultural productivity. The model leverages advanced machine learning
-                            techniques to enhance accuracy and efficiency in identifying plant health issues.</p>
-                          <a data-fancybox="diplome" data-no-swup href="files/bsc.png"
-                            class="art-link art-color-link art-w-chevron">Certificate</a>
-                        </div>
-
-                      </div>
-
-                      <!-- <div class="art-timeline-item">
-                        <div class="art-timeline-mark-light"></div>
-                        <div class="art-timeline-mark"></div>
-
-                        <div class="art-a art-timeline-content">
-                          <div class="art-card-header">
-                            <div class="art-left-side">
-                              <h5>Title of section 1</h5>
-                              <div class="art-el-suptitle mb-15">Template author</div>
-                            </div>
-                            <div class="art-right-side">
-                              <span class="art-date">jan 2018 - may 2020</span>
-                            </div>
-                          </div>
-                          <p>Ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.
-                          </p>
-                          <a data-fancybox="diplome" data-no-swup href="files/certificate.jpg"
-                            class="art-link art-color-link art-w-chevron">Certificate</a>
-                        </div>
-
-                      </div> -->
-
-                    </div>
-                    <!-- timeline end -->
-
-                  </div>
-                  <div class="col-lg-6">
-
-                    <!-- section title -->
-                    <div class="art-section-title">
-                      <!-- title frame -->
-                      <div class="art-title-frame">
-                        <!-- title -->
-                        <h4>Work History</h4>
-                      </div>
-                      <!-- title frame end -->
-                    </div>
-                    <!-- section title end -->
-
-                    <!-- timeline -->
-                    <div class="art-timeline">
-
-                      <div class="art-timeline-item">
-                        <div class="art-timeline-mark-light"></div>
-                        <div class="art-timeline-mark"></div>
-
-
-                        <div class="art-a art-timeline-content">
-                          <div class="art-card-header">
-                            <div class="art-left-side">
-                              <h5>Title of section 1</h5>
-                              <div class="art-el-suptitle mb-15">Template author</div>
-                            </div>
-                            <div class="art-right-side">
-                              <span class="art-date">jan 2018 - may 2020</span>
-                            </div>
-                          </div>
-                          <p>Placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui
-                            ut.</p>
-                        </div>
-                      </div>
-
-                      <div class="art-timeline-item">
-                        <div class="art-timeline-mark-light"></div>
-                        <div class="art-timeline-mark"></div>
-
-
-                        <div class="art-a art-timeline-content">
-                          <div class="art-card-header">
-                            <div class="art-left-side">
-                              <h5>Title of section 1</h5>
-                              <div class="art-el-suptitle mb-15">Template author</div>
-                            </div>
-                            <div class="art-right-side">
-                              <span class="art-date">jan 2018 - may 2020</span>
-                            </div>
-                          </div>
-                          <p>Adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora
-                            laudantium ipsa ad debitis unde?</p>
-                          <a data-fancybox="recommendation" data-no-swup href="#art-recomendation-popup-1"
-                            class="art-link art-color-link art-w-chevron">Recommendation</a>
-                        </div>
-
-                        <!-- popup -->
-                        <div class="art-recomendation-popup" style="display: none;" id="art-recomendation-popup-1">
-
-                          <!-- testimonial -->
-                          <div class="art-a art-testimonial">
-                            <!-- testimonial body -->
-                            <div class="testimonial-body">
-                              <!-- photo -->
-                              <img class="art-testimonial-face" src="img/testimonials/face-3.jpg" alt="face">
-                              <!-- name -->
-                              <h5>Paul Trueman</h5>
-                              <div class="art-el-suptitle mb-15">Template author</div>
-                              <!-- text -->
-                              <div class="mb-15">Working with Artur has been a pleasure. Better yet - I alerted them of
-                                a minor issue before going to sleep. The issue was fixed the next morning. I couldn't
-                                ask for better support. Thank you Artur!
-                                This is easily a 5 star freelancer.</div>
-                            </div>
-                            <!-- testimonial body end -->
-                            <!-- testimonial footer -->
-                            <div class="art-testimonial-footer">
-                              <div class="art-left-side">
-                                <!-- star rate -->
-                                <ul class="art-star-rate">
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                </ul>
-                                <!-- star rate end -->
-                              </div>
-                              <div class="art-right-side">
-
-                              </div>
-                            </div>
-                            <!-- testimonial footer end -->
-                          </div>
-                          <!-- testimonial end -->
-
-                        </div>
-                        <!-- popup end -->
-
-                      </div>
-
-                      <div class="art-timeline-item">
-                        <div class="art-timeline-mark-light"></div>
-                        <div class="art-timeline-mark"></div>
-
-                        <div class="art-a art-timeline-content">
-                          <div class="art-card-header">
-                            <div class="art-left-side">
-                              <h5>Title of section 1</h5>
-                              <div class="art-el-suptitle mb-15">Template author</div>
-                            </div>
-                            <div class="art-right-side">
-                              <span class="art-date">jan 2018 - may 2020</span>
-                            </div>
-                          </div>
-                          <p>Consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores
-                            voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque
-                            dolorem
-                            ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam
-                            provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae
-                            quasi repudiandae sed quod veniam
-                            dolore
-                            possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.
-                          </p>
-                          <a data-fancybox="recommendation" data-no-swup href="#art-recomendation-popup-2"
-                            class="art-link art-color-link art-w-chevron">Recommendation</a>
-                        </div>
-
-                        <!-- popup -->
-                        <div class="art-recomendation-popup" style="display: none;" id="art-recomendation-popup-2">
-
-                          <!-- testimonial -->
-                          <div class="art-a art-testimonial">
-                            <!-- testimonial body -->
-                            <div class="testimonial-body">
-                              <!-- photo -->
-                              <img class="art-testimonial-face" src="img/testimonials/face-4.jpg" alt="face">
-                              <!-- name -->
-                              <h5>Paul Trueman</h5>
-                              <div class="art-el-suptitle mb-15">Template author</div>
-                              <!-- text -->
-                              <div class="mb-15">Working with Artur has been a pleasure. Better yet - I alerted them of
-                                a minor issue before going to sleep. The issue was fixed the next morning. I couldn't
-                                ask for better support. Thank you Artur!
-                                This is easily a 5 star freelancer.</div>
-                            </div>
-                            <!-- testimonial body end -->
-                            <!-- testimonial footer -->
-                            <div class="art-testimonial-footer">
-                              <div class="art-left-side">
-                                <!-- star rate -->
-                                <ul class="art-star-rate">
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                </ul>
-                                <!-- star rate end -->
-                              </div>
-                              <div class="art-right-side">
-
-                              </div>
-                            </div>
-                            <!-- testimonial footer end -->
-                          </div>
-                          <!-- testimonial end -->
-
-                        </div>
-                        <!-- popup end -->
-
-                      </div>
-
-                      <div class="art-timeline-item">
-                        <div class="art-timeline-mark-light"></div>
-                        <div class="art-timeline-mark"></div>
-
-                        <div class="art-a art-timeline-content">
-                          <div class="art-card-header">
-                            <div class="art-left-side">
-                              <h5>Title of section 1</h5>
-                              <div class="art-el-suptitle mb-15">Template author</div>
-                            </div>
-                            <div class="art-right-side">
-                              <span class="art-date">jan 2018 - tonight</span>
-                            </div>
-                          </div>
-                          <p>Dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
-                          <a data-fancybox="recommendation" data-no-swup href="#art-recomendation-popup-3"
-                            class="art-link art-color-link art-w-chevron">Recommendation</a>
-                        </div>
-
-                        <!-- popup -->
-                        <div class="art-recomendation-popup" style="display: none;" id="art-recomendation-popup-3">
-
-                          <!-- testimonial -->
-                          <div class="art-a art-testimonial">
-                            <!-- testimonial body -->
-                            <div class="testimonial-body">
-                              <!-- photo -->
-                              <img class="art-testimonial-face" src="img/testimonials/face-2.jpg" alt="face">
-                              <!-- name -->
-                              <h5>Paul Trueman</h5>
-                              <div class="art-el-suptitle mb-15">Template author</div>
-                              <!-- text -->
-                              <div class="mb-15">Working with Artur has been a pleasure. Better yet - I alerted them of
-                                a minor issue before going to sleep. The issue was fixed the next morning. I couldn't
-                                ask for better support. Thank you Artur!
-                                This is easily a 5 star freelancer.</div>
-                            </div>
-                            <!-- testimonial body end -->
-                            <!-- testimonial footer -->
-                            <div class="art-testimonial-footer">
-                              <div class="art-left-side">
-                                <!-- star rate -->
-                                <ul class="art-star-rate">
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li class="art-empty-item"><i class="fas fa-star"></i></li>
-                                </ul>
-                                <!-- star rate end -->
-                              </div>
-                              <div class="art-right-side">
-
-                              </div>
-                            </div>
-                            <!-- testimonial footer end -->
-                          </div>
-                          <!-- testimonial end -->
-
-                        </div>
-                        <!-- popup end -->
-
-                      </div>
-
-                    </div>
-                    <!-- timeline end -->
-
-                  </div>
-                  <!-- col end -->
-
-                </div>
-                <!-- row end -->
-
-              </div>
-              <!-- container end -->
-
-              <!-- container -->
-              <div class="container-fluid">
-
-                <!-- row -->
-                <div class="row">
-
-                  <!-- col -->
-                  <div class="col-lg-12">
-
-                    <!-- section title -->
-                    <div class="art-section-title">
-                      <!-- title frame -->
-                      <div class="art-title-frame">
-                        <!-- title -->
-                        <h4>Newsletter</h4>
-                      </div>
-                      <!-- title frame end -->
-                    </div>
-                    <!-- section title end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-12">
-
-                    <!-- slider container -->
-                    <div class="swiper-container art-blog-slider" style="overflow: visible">
-                      <!-- slider wrapper -->
-                      <div class="swiper-wrapper">
-                        <!-- slide -->
-                        <div class="swiper-slide">
-
-                          <!-- blog post card -->
-                          <div class="art-a art-blog-card">
-                            <!-- post cover -->
-                            <a href="#." class="art-port-cover">
-                              <!-- img -->
-                              <img src="img/blog/1.jpg" alt="blog post">
-                            </a>
-                            <!-- post cover end -->
-                            <!-- post description -->
-                            <div class="art-post-description">
-                              <!-- title -->
-                              <a href="#.">
-                                <h5 class="mb-15">Blog post title</h5>
-                              </a>
-                              <!-- text -->
-                              <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet!</div>
-                              <!-- link -->
-                              <a href="#." class="art-link art-color-link art-w-chevron">Read more</a>
-                            </div>
-                            <!-- post description end -->
-                          </div>
-                          <!-- blog post card end -->
-
-                        </div>
-                        <!-- slide end -->
-                        <!-- slide -->
-                        <div class="swiper-slide">
-
-                          <!-- blog post card -->
-                          <div class="art-a art-blog-card">
-                            <!-- post cover -->
-                            <a href="#." class="art-port-cover">
-                              <!-- img -->
-                              <img src="img/blog/2.jpg" alt="blog post">
-                            </a>
-                            <!-- post cover end -->
-                            <!-- post description -->
-                            <div class="art-post-description">
-                              <!-- title -->
-                              <a href="#.">
-                                <h5 class="mb-15">Blog post title</h5>
-                              </a>
-                              <!-- text -->
-                              <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet!</div>
-                              <!-- link -->
-                              <a href="#." class="art-link art-color-link art-w-chevron">Read more</a>
-                            </div>
-                            <!-- post description end -->
-                          </div>
-                          <!-- blog post card end -->
-
-                        </div>
-                        <!-- slide end -->
-                        <!-- slide -->
-                        <div class="swiper-slide">
-
-                          <!-- blog post card -->
-                          <div class="art-a art-blog-card">
-                            <!-- post cover -->
-                            <a href="#." class="art-port-cover">
-                              <!-- img -->
-                              <img src="img/blog/3.jpg" alt="blog post">
-                            </a>
-                            <!-- post cover end -->
-                            <!-- post description -->
-                            <div class="art-post-description">
-                              <!-- title -->
-                              <a href="#.">
-                                <h5 class="mb-15">Blog post title</h5>
-                              </a>
-                              <!-- text -->
-                              <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet!</div>
-                              <!-- link -->
-                              <a href="#." class="art-link art-color-link art-w-chevron">Read more</a>
-                            </div>
-                            <!-- post description end -->
-                          </div>
-                          <!-- blog post card end -->
-
-                        </div>
-                        <!-- slide end -->
-                        <!-- slide -->
-                        <div class="swiper-slide">
-
-                          <!-- blog post card -->
-                          <div class="art-a art-blog-card">
-                            <!-- post cover -->
-                            <a href="#." class="art-port-cover">
-                              <!-- img -->
-                              <img src="img/blog/4.jpg" alt="blog post">
-                            </a>
-                            <!-- post cover end -->
-                            <!-- post description -->
-                            <div class="art-post-description">
-                              <!-- title -->
-                              <a href="#.">
-                                <h5 class="mb-15">Blog post title</h5>
-                              </a>
-                              <!-- text -->
-                              <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet!</div>
-                              <!-- link -->
-                              <a href="#." class="art-link art-color-link art-w-chevron">Read more</a>
-                            </div>
-                            <!-- post description end -->
-                          </div>
-                          <!-- blog post card end -->
-
-                        </div>
-                        <!-- slide end -->
-                        <!-- slide -->
-                        <div class="swiper-slide">
-
-                          <!-- blog post card -->
-                          <div class="art-a art-blog-card">
-                            <!-- post cover -->
-                            <a href="#." class="art-port-cover">
-                              <!-- img -->
-                              <img src="img/blog/5.jpg" alt="blog post">
-                            </a>
-                            <!-- post cover end -->
-                            <!-- post description -->
-                            <div class="art-post-description">
-                              <!-- title -->
-                              <a href="#.">
-                                <h5 class="mb-15">Blog post title</h5>
-                              </a>
-                              <!-- text -->
-                              <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet!</div>
-                              <!-- link -->
-                              <a href="#." class="art-link art-color-link art-w-chevron">Read more</a>
-                            </div>
-                            <!-- post description end -->
-                          </div>
-                          <!-- blog post card end -->
-
-                        </div>
-                        <!-- slide end -->
-                      </div>
-                      <!-- slider wrapper end -->
-                    </div>
-                    <!-- slider container end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-12">
-
-                    <!-- slider navigation -->
-                    <div class="art-slider-navigation">
-
-                      <!-- left side -->
-                      <div class="art-sn-left">
-
-                        <!-- slider pagination -->
-                        <div class="swiper-pagination"></div>
-
-                      </div>
-                      <!-- left side end -->
-
-                      <!-- right side -->
-                      <div class="art-sn-right">
-
-                        <!-- slider navigation -->
-                        <div class="art-slider-nav-frame">
-                          <!-- prev -->
-                          <div class="art-slider-nav art-blog-swiper-prev"><i class="fas fa-chevron-left"></i></div>
-                          <!-- next -->
-                          <div class="art-slider-nav art-blog-swiper-next"><i class="fas fa-chevron-right"></i></div>
-                        </div>
-                        <!-- slider navigation -->
-
-                      </div>
-                      <!-- right side end -->
-
-                    </div>
-                    <!-- slider navigation end -->
-
-                  </div>
-                  <!-- col end -->
-
-                </div>
-                <!-- row end -->
-
-              </div>
-              <!-- container end -->
-
-              <!-- container -->
-              <div class="container-fluid">
-
-                <!-- row -->
-                <div class="row p-30-0">
-
-                  <!-- col -->
-                  <div class="col-lg-12">
-
-                    <!-- section title -->
-                    <div class="art-section-title">
-                      <!-- title frame -->
-                      <div class="art-title-frame">
-                        <!-- title -->
-                        <h4>Contact information</h4>
-                      </div>
-                      <!-- title frame end -->
-                    </div>
-                    <!-- section title end -->
-
-                  </div>
-                  <!-- col end -->
-                  <!-- col -->
-                  <div class="col-lg-4">
-                    <!-- contact card -->
-                    <div class="art-a art-card">
-                      <div class="art-table p-15-15">
-                        <ul>
-                          <li>
-                            <h6>Country:</h6><span>Germany</span>
-                          </li>
-                          <li>
-                            <h6>City:</h6><span>Duisburg</span>
-                          </li>
-
-                          <li>
-                            <h6>Street:</h6><span>Sternbuschweg</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <!-- contact card end -->
-                  </div>
-                  <!-- col end -->
-                  <!-- col -->
-                  <div class="col-lg-4">
-                    <!-- contact card -->
-                    <div class="art-a art-card">
-                      <div class="art-table p-15-15">
-                        <ul>
-                          <li>
-                            <h6>Email:</h6><span>kabirdaiyan@gmail.com</span>
-                          </li>
-                          <li>
-                            <h6>Phone:</h6><span>+49 (0) 15259210140</span>
-                          </li>
-                          <li>
-                            <h6>Skype:</h6><span>kabirdaiyan</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <!-- contact card end -->
-                  </div>
-                  <!-- col end -->
-                  <!-- col -->
-                  <!-- <div class="col-lg-4">
-                    
-                    <div class="art-a art-card">
-                      <div class="art-table p-15-15">
-                        <ul>
-                          <li>
-                            <h6>Support service:</h6><span>+78 (098) 333 11 22</span>
-                          </li>
-                          <li>
-                            <h6>Office:</h6><span>+78 (098) 326 11 22</span>
-                          </li>
-                          <li>
-                            <h6>Personal:</h6><span>+78 (077) 114 26 53</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                   
-
-                  </div> -->
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-12">
-
-                    <!-- section title -->
-                    <div class="art-section-title">
-                      <!-- title frame -->
-                      <div class="art-title-frame">
-                        <!-- title -->
-                        <h4>Get in touch</h4>
-                      </div>
-                      <!-- title frame end -->
-                    </div>
-                    <!-- section title end -->
-
-                    <!-- contact form frame -->
-                    <div class="art-a art-card">
-
-                      <!-- contact form -->
-                      <form id="form" class="art-contact-form">
-                        <!-- form field -->
-                        <div class="art-form-field">
-                          <!-- name input -->
-                          <input id="name" name="name" class="art-input" type="text" placeholder="Name" required>
-                          <!-- label -->
-                          <label for="name"><i class="fas fa-user"></i></label>
-                        </div>
-                        <!-- form field end -->
-                        <!-- form field -->
-                        <div class="art-form-field">
-                          <!-- email input -->
-                          <input id="email" name="email" class="art-input" type="email" placeholder="Email" required>
-                          <!-- label -->
-                          <label for="email"><i class="fas fa-at"></i></label>
-                        </div>
-                        <!-- form field end -->
-                        <!-- form field -->
-                        <div class="art-form-field">
-                          <!-- message textarea -->
-                          <textarea id="message" name="text" class="art-input" placeholder="Message"
-                            required></textarea>
-                          <!-- label -->
-                          <label for="message"><i class="far fa-envelope"></i></label>
-                        </div>
-                        <!-- form field end -->
-                        <!-- button -->
-                        <div class="art-submit-frame">
-                          <button class="art-btn art-btn-md art-submit" type="submit"><span>Send message</span></button>
-                          <!-- success -->
-                          <div class="art-success">Success <i class="fas fa-check"></i></div>
-                        </div>
-                      </form>
-                      <!-- contact form end -->
-
-                    </div>
-                    <!-- contact form frame end -->
-
-                  </div>
-                  <!-- col end -->
-
-                </div>
-                <!-- row end -->
-
-              </div>
-              <!-- container end -->
-
-              <!-- container -->
-              <div class="container-fluid">
-
-                <!-- row -->
-                <div class="row">
-
-                  <!-- col -->
-                  <div class="col-6 col-lg-3">
-                    <!-- brand -->
-                    <img class="art-brand" src="img/brands/1.png" alt="brand">
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-6 col-lg-3">
-                    <!-- brand -->
-                    <img class="art-brand" src="img/brands/2.png" alt="brand">
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-6 col-lg-3">
-                    <!-- brand -->
-                    <img class="art-brand" src="img/brands/3.png" alt="brand">
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-6 col-lg-3">
-                    <!-- brand -->
-                    <img class="art-brand" src="img/brands/1.png" alt="brand">
-                  </div>
-                  <!-- col end -->
-
-                </div>
-                <!-- row end -->
-
-              </div>
-              <!-- container end -->
-
-              <!-- container -->
-              <div class="container-fluid">
-
-                <!-- footer -->
-                <footer>
-                  <!-- copyright -->
-                  <div class="art-copy">© 2021 Daiyan Kabir</div>
-                  <!-- author ( Please! Do not delete it. You are awesome! :) -->
-                  <div>Template author:&#160; <a href="https://themeforest.net/user/millerdigitaldesign" target="_blank"
-                      data-no-swup>Nazar Miller</a></div>
-                </footer>
-                <!-- footer end -->
-
-              </div>
-              <!-- container end -->
-
-            </div>
-            <!-- scroll frame end -->
-
-          </div>
-          <!-- swup container end -->
-
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-number">3+</div>
+            <div class="stat-label">Years Experience</div>
         </div>
-        <!-- content end -->
-
-      </div>
-      <!-- app container end -->
-
+        <div class="stat-item">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Degrees</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Languages</div>
+        </div>
     </div>
-    <!-- app wrapper end -->
 
-    <!-- preloader -->
-    <div class="art-preloader">
-      <!-- preloader content -->
-      <div class="art-preloader-content">
-        <!-- title -->
-        <h4>Daiyan Kabir</h4>
-        <!-- progressbar -->
-        <div id="preloader" class="art-preloader-load"></div>
-      </div>
-      <!-- preloader content end -->
-    </div>
-    <!-- preloader end -->
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-header fade-in">
+            <h2>Work Experience</h2>
+            <p>Professional journey through software development roles, delivering scalable solutions and optimizing performance.</p>
+        </div>
 
-  </div>
-  <!-- app end -->
-  <div id="swupMenu"></div>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">April 2025 - Present</div>
+                    <h3 class="timeline-title">Working Student - Software Development</h3>
+                    <div class="timeline-company">HiGreen Apotheke, Düsseldorf, Germany</div>
+                    <div class="timeline-desc">
+                        <ul>
+                            <li>Supporting design, development, and testing of software features and applications</li>
+                            <li>Debugging, troubleshooting, and optimizing code for better performance</li>
+                            <li>Collaborating with developers in an agile environment</li>
+                            <li>Gaining practical experience with version control and code reviews</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-  <!-- jquery js -->
-  <script src="js/plugins/jquery.min.js"></script>
-  <!-- anime js -->
-  <script src="js/plugins/anime.min.js"></script>
-  <!-- swiper js -->
-  <script src="js/plugins/swiper.min.js"></script>
-  <!-- progressbar js -->
-  <script src="js/plugins/progressbar.min.js"></script>
-  <!-- smooth scrollbar js -->
-  <script src="js/plugins/smooth-scrollbar.min.js"></script>
-  <!-- overscroll js -->
-  <script src="js/plugins/overscroll.min.js"></script>
-  <!-- typing js -->
-  <script src="js/plugins/typing.min.js"></script>
-  <!-- isotope js -->
-  <script src="js/plugins/isotope.min.js"></script>
-  <!-- fancybox js -->
-  <script src="js/plugins/fancybox.min.js"></script>
-  <!-- swup js -->
-  <script src="js/plugins/swup.min.js"></script>
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">September 2022 - August 2024</div>
+                    <h3 class="timeline-title">Software Developer</h3>
+                    <div class="timeline-company">DataSoft Systems Bangladesh Ltd., Dhaka</div>
+                    <div class="timeline-desc">
+                        <ul>
+                            <li>Managed client requests, delivering customized solutions that increased satisfaction by 15%</li>
+                            <li>Conducted code reviews decreasing bug incidence by 30%</li>
+                            <li>Maintained high quality standards across all developed solutions</li>
+                            <li>Ensured timely implementation within project deadlines</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-  <!-- main js -->
-  <script src="js/main.js"></script>
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">July 2021 - August 2022</div>
+                    <h3 class="timeline-title">Software Developer</h3>
+                    <div class="timeline-company">MTI Ltd., Dhaka, Bangladesh</div>
+                    <div class="timeline-desc">
+                        <ul>
+                            <li>Developed full-stack web applications, reducing load times by 40%</li>
+                            <li>Enhanced user engagement across multiple platforms</li>
+                            <li>Implemented scalable backend services supporting 150% increase in concurrent users</li>
+                            <li>Ensured seamless performance during peak traffic periods</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Skills Section -->
+    <section id="skills" style="background: var(--secondary);">
+        <div class="section-header fade-in">
+            <h2>Technical Skills</h2>
+            <p>Comprehensive toolkit for building modern, scalable applications across the full stack.</p>
+        </div>
+
+        <div class="skills-container">
+            <div class="skill-category fade-in">
+                <div class="skill-header">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Programming Languages</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">C#</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">.NET Framework</span>
+                    <span class="skill-tag">Django</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <div class="skill-header">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Databases & Cloud</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">MS SQL Server</span>
+                    <span class="skill-tag">Azure</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Database Design</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <div class="skill-header">
+                    <div class="skill-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Tools & Technologies</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Jira</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">RESTful APIs</span>
+                    <span class="skill-tag">Agile/Scrum</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <div class="skill-header">
+                    <div class="skill-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Languages</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">English (C1)</span>
+                    <span class="skill-tag">Deutsch (B1)</span>
+                    <span class="skill-tag">Bengali (Native)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header fade-in">
+            <h2>Featured Projects</h2>
+            <p>Key projects demonstrating expertise in trading platforms, web applications, and enterprise solutions.</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Smart-DS Trading Platform</h3>
+                    <p>Developed a comprehensive brokerage trading platform using C# and .NET Framework. Features secure data communication, real-time trading capabilities, and scalable architecture designed for high-frequency trading environments.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">C#</span>
+                        <span class="tech-badge">.NET Framework</span>
+                        <span class="tech-badge">RESTful APIs</span>
+                        <span class="tech-badge">SQL Server</span>
+                        <span class="tech-badge">OOP</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon" style="background: var(--success);">
+                        <i class="fas fa-road"></i>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Roads & Highway PM System</h3>
+                    <p>Web-based project management portal for Comilla Roads and Highway Office using Django Framework. Streamlines workflow tracking for government officers with role-based access control and comprehensive progress monitoring.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Django</span>
+                        <span class="tech-badge">PostgreSQL</span>
+                        <span class="tech-badge">Authentication</span>
+                        <span class="tech-badge">RBAC</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" style="background: var(--secondary);">
+        <div class="section-header fade-in">
+            <h2>Education</h2>
+            <p>Academic background in Computer Science with focus on software engineering and system architecture.</p>
+        </div>
+
+        <div class="education-grid">
+            <div class="education-card fade-in">
+                <div class="edu-date">April 2025 - Present</div>
+                <h3 class="edu-degree">Master's in Software Engineering</h3>
+                <div class="edu-school">Universität Hildesheim, Germany</div>
+            </div>
+
+            <div class="education-card fade-in">
+                <div class="edu-date">September 2021 - March 2023</div>
+                <h3 class="edu-degree">Master's in Computer Science</h3>
+                <div class="edu-school">American International University Bangladesh</div>
+            </div>
+
+            <div class="education-card fade-in">
+                <div class="edu-date">January 2018 - June 2021</div>
+                <h3 class="edu-degree">Bachelor in Computer Science and Engineering</h3>
+                <div class="edu-school">American International University Bangladesh</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header fade-in">
+            <h2>Get In Touch</h2>
+            <p>Currently open to new opportunities and collaborations in software development.</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h2>Let's Work Together</h2>
+                <p>I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!</p>
+
+                <div class="contact-links">
+                    <a href="mailto:kabirdaiyan@gmail.com" class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600;">Email</div>
+                            <div style="color: var(--text-muted); font-size: 0.9rem;">kabirdaiyan@gmail.com</div>
+                        </div>
+                    </a>
+
+                    <a href="tel:+4915259210140" class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600;">Phone</div>
+                            <div style="color: var(--text-muted); font-size: 0.9rem;">+49 152 59210140</div>
+                        </div>
+                    </a>
+
+                    <div class="contact-item" style="cursor: default;">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600;">Location</div>
+                            <div style="color: var(--text-muted); font-size: 0.9rem;">Körnerstr 28, 45470 Mülheim, Germany</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form fade-in">
+                <form onsubmit="event.preventDefault(); alert('Message sent! (Demo form)');">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Tell me about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:kabirdaiyan@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>&copy; 2025 Daiyan Kabir. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Built with passion in Mülheim, Germany</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 23, 42, 0.95)';
+            } else {
+                nav.style.background = 'rgba(15, 23, 42, 0.8)';
+            }
+        });
+    </script>
 </body>
-
-
-<!-- Mirrored from miller.bslthemes.com/arter-demo/onepage.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 16 Feb 2025 05:46:51 GMT -->
-
-<!-- Mirrored from harshk8853.github.io/artur/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Feb 2025 21:19:50 GMT -->
-
 </html>
